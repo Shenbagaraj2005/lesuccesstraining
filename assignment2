@@ -1,0 +1,92 @@
+1.character is vowel or constant
+  
+import java.util.Scanner;
+
+public class prog7 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a character: ");
+        char ch = sc.next().charAt(0);
+
+        if ("aeiouAEIOU".indexOf(ch) != -1)
+            System.out.println(ch + " is a Vowel.");
+        else
+            System.out.println(ch + " is a Consonant.");
+    }
+}
+
+2.Grade Based on Marks
+import java.util.Scanner;
+
+public class  prog8{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter marks (0–100): ");
+        int marks = sc.nextInt();
+
+        if (marks >= 90) System.out.println("Grade A");
+        else if (marks >= 75) System.out.println("Grade B");
+        else if (marks >= 60) System.out.println("Grade C");
+        else if (marks >= 40) System.out.println("Grade D");
+        else System.out.println("Fail");
+    }
+}
+
+
+
+3.SI or CI calculator
+
+import java.util.Scanner;
+
+public class prog9{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("");
+        System.out.println(" Enter 1 for Simple Interest, 2 for Compound Interest: ");
+        int choice = sc.nextInt();
+
+        System.out.print("Enter Principal (P),Enter Rate (R):,Enter Time (T):");
+        double p = sc.nextDouble();
+
+        double r = sc.nextDouble();
+
+
+        double t = sc.nextDouble();
+
+        if (choice == 1) {
+            double si = (p * r * t) / 100;
+            System.out.println("Simple Interest: " + si);
+        } else if (choice == 2) {
+            double ci = p * Math.pow((1 + r / 100), t) - p;
+            System.out.println("Compound Interest: " + ci);
+        } else {
+            System.out.println("Invalid choice.");
+        }
+    }
+}
+
+4.prime numbers
+import java.util.Scanner;
+
+public class pro10 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter N: ");
+        int n = sc.nextInt();
+
+        System.out.println("Prime numbers between 1 and " + n + ":");
+        for (int i = 2; i <= n; i++) {
+            boolean isPrime = true;
+            for (int j = 2; j <= Math.sqrt(i); j++) {
+                if (i % j == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            if (isPrime)
+                System.out.print(i + " ");
+        }
+    }
+}
+
