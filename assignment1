@@ -1,0 +1,78 @@
+1. Type conversion
+  import java.util.Scanner;
+
+public class prog4 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter an integer,Enter a float,Enter a character");
+        int i = sc.nextInt();
+        float f = sc.nextFloat();
+        char c = sc.next().charAt(0);
+
+        float intToFloat = i;
+        float result1 = intToFloat + f;
+
+        int charToAscii = (int) c;
+        int result2 = i + charToAscii;
+
+        System.out.println("result1 " + result1);
+        System.out.println("result2 " + result2);
+    }
+}
+
+
+
+
+2.Arithmetic Expression Evaluator
+   import java.util.Scanner;
+
+public class prog5 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter first integer: ");
+        int a = sc.nextInt();
+
+        System.out.print("Enter second integer: ");
+        int b = sc.nextInt();
+
+        System.out.print("Enter a double: ");
+        double d = sc.nextDouble();
+
+        int add = a + b;
+        int sub = a - b;
+        int mul = a * b;
+        double div = (double) a / b;
+
+        double finalResult = add * d;
+
+        System.out.println("Addition: " + add);
+        System.out.println("Subtraction: " + sub);
+        System.out.println("Multiplication: " + mul);
+        System.out.println("Division: " + div);
+        System.out.println("Addition * double value: " + finalResult);
+    }
+}
+3.bitwise operator experiment
+  import java.util.Scanner;
+
+public class prog6{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter first integer: ");
+        int a = sc.nextInt();
+
+        System.out.print("Enter second integer: ");
+        int b = sc.nextInt();
+
+        System.out.println("AND: " + (a & b));
+        System.out.println("OR: " + (a | b));
+        System.out.println("XOR: " + (a ^ b));
+        System.out.println("Left Shift a by 2: " + (a << 2));
+        System.out.println("Left Shift b by 2: " + (b << 2));
+        System.out.println("Right Shift a by 2: " + (a >> 2));
+        System.out.println("Right Shift b by 2: " + (b >> 2));
+    }
+}
