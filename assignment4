@@ -1,0 +1,160 @@
+1. Palindrome Check
+
+import java.util.*;
+public class StringAssignments {
+public static void Palindrome(String str) {
+        String reversed = new StringBuilder(str).reverse().toString();
+        if (str.equals(reversed)) {
+            System.out.println("Palindrome");
+        } else {
+            System.out.println("Not Palindrome");
+        }
+    }
+
+
+2. Count Vowels and Consonants
+   import java.util.Scanner;
+    public class Vowel {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String input = sc.nextLine().toLowerCase();
+        int v = 0, c= 0;
+        for (char ch : input.toCharArray()) {
+            if (Character.isLetter(ch)) {
+                if ("aeiou".indexOf(ch) != -1)
+                    v++;
+                else
+                    c++;
+            }
+        }
+        System.out.println("Vowels: " + v + " Consonants: " + c);
+        sc.close();
+    }
+}
+
+3.Remove Duplicates 
+import java.util.Scanner;
+public class Remove {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
+        String result = "";
+
+        for (char c : input.toCharArray()) {
+            if (result.indexOf(c) == -1) {
+                result += c;
+            }
+        }
+
+        System.out.println(result);
+        sc.close();
+    }
+}
+
+
+
+4.Reverse String 
+
+import java.util.Scanner;
+public class Reverse {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String input = sc.nextLine();
+        String reversed = new StringBuilder(input).reverse().toString();
+        System.out.println(reversed);
+        sc.close();
+    }
+}
+
+
+5.Anagram Check
+import java.util.*;
+public class Anagram {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first string: ");
+        String str1 = sc.nextLine().replaceAll("\\s", "").toLowerCase();
+        System.out.print("Enter second string: ");
+        String str2 = sc.nextLine().replaceAll("\\s", "").toLowerCase();
+        char[] a = str1.toCharArray();
+        char[] b = str2.toCharArray();
+        Arrays.sort(a);
+        Arrays.sort(b);
+       if (Arrays.equals(a, b)) {
+            System.out.println("Anagrams");
+        } else {
+            System.out.println("Not Anagrams");
+        }
+       sc.close();
+    }
+}
+
+
+
+6.Capitalize First Letter
+
+import java.util.Scanner;
+public class Cap {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a sentence: ");
+        String sentence = sc.nextLine().toLowerCase();
+        String[] words = sentence.split(" ");
+        StringBuilder result = new StringBuilder();
+       for (String word : words) {
+            if (!word.isEmpty())
+                result.append(Character.toUpperCase(word.charAt(0))).append(word.substring(1)).append(" ");
+        }
+        System.out.println(result.toString().trim());
+        sc.close();
+    }
+}
+
+
+7.Count Word Occurrences 
+import java.util.Scanner;
+public class Word {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a sentence: ");
+        String sen= sc.nextLine();
+        System.out.print("Enter a word to search: ");
+        String word = sc.nextLine();
+        int count = 0;
+        for (String w : sen.split(" ")) {
+            if (w.equalsIgnoreCase(word))
+                count++;
+        }
+        System.out.println(count);
+        sc.close();
+    }
+}
+
+
+8.Toggle Case 
+import java.util.Scanner;
+public class ToggleCase {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String input = sc.nextLine();
+        StringBuilder result = new StringBuilder();
+        for (char c : input.toCharArray()) {
+            if (Character.isUpperCase(c))
+                result.append(Character.toLowerCase(c));
+            else if (Character.isLowerCase(c))
+                result.append(Character.toUpperCase(c));
+            else
+                result.append(c);
+        }
+        System.out.println(result.toString());
+        sc.close();
+    }
+}
+
+
+
+
+
