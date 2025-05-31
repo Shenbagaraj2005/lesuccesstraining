@@ -1,0 +1,87 @@
+1: Calculator class with static and instance variables
+import java.util.Scanner;
+class Calculator {
+    int result;
+    static int operationCount = 0; 
+    void add(int a, int b) {
+        result = a + b;
+        operationCount++;
+        System.out.println("Result of addition: " + result);
+    }
+static void displayOperationCount() {
+        System.out.println("Total operations performed: " + operationCount);
+    }
+public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Calculator calc1 = new Calculator();
+        Calculator calc2 = new Calculator();
+        System.out.print("Enter two numbers to add (first addition): ");
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        calc1.add(a, b);
+        System.out.print("Enter two numbers to add (second addition): ");
+        int c = sc.nextInt();
+        int d = sc.nextInt();
+        calc2.add(c, d);
+        Calculator.displayOperationCount();
+    }
+}
+
+
+2: BankAccount with private balance and access control
+import java.util.Scanner;
+class BankAccount {
+    private double balance;
+  public void deposit(double amount) {
+        balance += amount;
+        System.out.println("Amount deposited: " + amount);
+    }
+   public double getBalance() {
+        return balance;
+    }
+}
+class TestBank {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        BankAccount acc = new BankAccount();
+        System.out.print("Enter amount to deposit: ");
+        double amt = sc.nextDouble();
+        acc.deposit(amt);
+        System.out.println("Current balance (via method): " + acc.getBalance());
+   }
+}
+
+
+
+3: Student class with overloaded constructors and default values
+
+import java.util.Scanner;
+class Student {
+    int rollNo;
+    String name;
+Student(int r, String n) {
+        rollNo = r;
+        name = n;
+    }
+Student(int r) {
+        rollNo = r;
+        name = "Unknown";
+    }
+void display() {
+        System.out.println("Roll No: " + rollNo + ", Name: " + name);
+    }
+public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+         System.out.print("Enter roll number: ");
+        int roll = sc.nextInt();
+        sc.nextLine(); // consume newline
+        System.out.print("Enter name: ");
+        String name = sc.nextLine();
+        Student s1 = new Student(roll, name);
+        Student s2 = new Student(101); // using default name
+        System.out.println("Student 1:");
+        s1.display();
+        System.out.println("Student 2:");
+        s2.display();
+    }
+}
