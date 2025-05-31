@@ -1,0 +1,95 @@
+1. Find the Majority Element in an Array
+
+import java.util.*;
+public class MajorityElement {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] nums = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            nums[i] = sc.nextInt();
+        }
+
+        int count = 0, candidate = -1;
+        for (int num : nums) {
+            if (count == 0) {
+                candidate = num;
+                count = 1;
+            } else if (num == candidate) {
+                count++;
+            } else {
+                count--;
+            }
+        }
+
+        System.out.println(candidate);
+    }
+}
+
+
+ 2. Maximum Subarray Sum 
+
+import java.util.*;
+public class MaxSubarraySum {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        int maxSoFar = arr[0];
+        int maxEndingHere = arr[0];
+
+        for (int i = 1; i < n; i++) {
+            maxEndingHere = Math.max(arr[i], maxEndingHere + arr[i]);
+            maxSoFar = Math.max(maxSoFar, maxEndingHere);
+        }
+
+        System.out.println(maxSoFar);
+    }
+}
+
+
+3. First Non-Repeating Character in a String
+import java.util.*;
+public class FirstNonRepeatingChar {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+
+        int[] count = new int[26];
+        for (char c : s.toCharArray()) {
+            count[c - 'a']++;
+        }
+
+        for (int i = 0; i < s.length(); i++) {
+            if (count[s.charAt(i) - 'a'] == 1) {
+                System.out.println(i);
+                return;
+            }
+        }
+
+        System.out.println(-1);
+    }
+}
+
+
+4. Check if One String is Rotation of Another
+import java.util.*;
+public class IsRotation {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s1 = sc.nextLine();
+        String s2 = sc.nextLine();
+
+        if (s1.length() == s2.length() && (s1 + s1).contains(s2)) {
+            System.out.println("True");
+        } else {
+            System.out.println("False");
+        }
+    }
+}
