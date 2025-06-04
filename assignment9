@@ -1,0 +1,62 @@
+1.move zeros to end
+
+import java.util.*;
+public class Main {
+    public static void moveZeroes(int[] nums) {
+        int l = 0;
+        for (int r = 0; r < nums.length; r++) {
+            if (nums[r] != 0) {
+                if (r != l) {
+                    nums[l] = nums[r];
+                    nums[r] = 0;
+                }
+                l++;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {0, 1, 0, 3, 12};
+        moveZeroes(nums);
+        printArray(nums);
+    }
+
+    public static void printArray(int[] nums) {
+        for (int num : nums) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+}
+
+
+
+
+
+2.count 'a' from infinitely repeated string
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String s = scanner.nextLine();
+        long n = scanner.nextLong();
+        long countOfAInS = 0;
+        for (char c : s.toCharArray()) {
+            if (c == 'a') {
+                countOfAInS++;
+            }
+        }
+
+        long lengthOfS = s.length();
+        long fullRepeats = n / lengthOfS;
+        long remainder = n % lengthOfS;
+        long totalA = fullRepeats * countOfAInS;
+        for (int i = 0; i < remainder; i++) {
+            if (s.charAt(i) == 'a') {
+                totalA++;
+            }
+        }
+        System.out.println(totalA);
+    }
+}
