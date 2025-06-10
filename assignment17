@@ -1,0 +1,167 @@
+1: Level Order Traversal
+import java.util.*;
+
+class Node {
+    int data;
+    Node left, right;
+
+    Node(int val) {
+        this.data = val;
+        this.left = this.right = null;
+    }
+}
+
+public class LevelOrderTraversal {
+
+    public static Node buildTree(int[] arr) {
+        if (arr.length == 0 || arr[0] == -1) return null;
+
+        Node root = new Node(arr[0]);
+        Queue<Node> q = new LinkedList<>();
+        q.offer(root);
+
+        int i = 1;
+        while (!q.isEmpty() && i < arr.length) {
+            Node current = q.poll();
+
+            if (arr[i] != -1) {
+                current.left = new Node(arr[i]);
+                q.offer(current.left);
+            }
+            i++;
+            if (i >= arr.length) break;
+
+            if (arr[i] != -1) {
+                current.right = new Node(arr[i]);
+                q.offer(current.right);
+            }
+            i++;
+        }
+
+        return root;
+    }
+
+    public static void printLevelOrder(Node root) {
+        if (root == null) return;
+
+        Queue<Node> q = new LinkedList<>();
+        q.offer(root);
+        System.out.print("Level Order Traversal: ");
+        while (!q.isEmpty()) {
+            Node curr = q.poll();
+            System.out.print(curr.data + " ");
+            if (curr.left != null) q.offer(curr.left);
+            if (curr.right != null) q.offer(curr.right);
+        }
+    }
+}
+
+
+
+2: Count Leaf Nodes
+import java.util.*;
+
+class Node {
+    int data;
+    Node left, right;
+
+    Node(int val) {
+        this.data = val;
+        this.left = this.right = null;
+    }
+}
+
+public class CountLeafNodes {
+
+    public static Node buildTree(int[] arr) {
+        if (arr.length == 0 || arr[0] == -1) return null;
+
+        Node root = new Node(arr[0]);
+        Queue<Node> q = new LinkedList<>();
+        q.offer(root);
+
+        int i = 1;
+        while (!q.isEmpty() && i < arr.length) {
+            Node current = q.poll();
+
+            if (arr[i] != -1) {
+                current.left = new Node(arr[i]);
+                q.offer(current.left);
+            }
+            i++;
+            if (i >= arr.length) break;
+
+            if (arr[i] != -1) {
+                current.right = new Node(arr[i]);
+                q.offer(current.right);
+            }
+            i++;
+        }
+
+        return root;
+    }
+
+    public static int countLeafNodes(Node root) {
+        if (root == null) return 0;
+        if (root.left == null && root.right == null) return 1;
+        return countLeafNodes(root.left) + countLeafNodes(root.right);
+    }
+}
+
+
+
+ 3: Find Height of a Binary Tree
+import java.util.*;
+
+class Node {
+    int data;
+    Node left, right;
+
+    Node(int val) {
+        this.data = val;
+        this.left = this.right = null;
+    }
+}
+
+public class TreeHeight {
+
+    public static Node buildTree(int[] arr) {
+        if (arr.length == 0 || arr[0] == -1) return null;
+
+        Node root = new Node(arr[0]);
+        Queue<Node> q = new LinkedList<>();
+        q.offer(root);
+
+        int i = 1;
+        while (!q.isEmpty() && i < arr.length) {
+            Node current = q.poll();
+
+            if (arr[i] != -1) {
+                current.left = new Node(arr[i]);
+                q.offer(current.left);
+            }
+            i++;
+            if (i >= arr.length) break;
+
+            if (arr[i] != -1) {
+                current.right = new Node(arr[i]);
+                q.offer(current.right);
+            }
+            i++;
+        }
+
+        return root;
+    }
+
+    public static int findHeight(Node root) {
+        if (root == null) return 0;
+        int leftHeight = findHeight(root.left);
+        int rightHeight = findHeight(root.right);
+        return 1 + Math.max(leftHeight, rightHeight);
+    }
+
+}
+
+
+
+
