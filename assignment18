@@ -1,0 +1,93 @@
+1. BFS Traversal Program (Breadth-First Search)
+
+import java.util.*;
+public class BFS {
+    public static List<Integer> bfsTraversal(int V, List<List<Integer>> adj, int start) {
+        List<Integer> bfs = new ArrayList<>();
+        boolean[] visited = new boolean[V];
+        Queue<Integer> queue = new LinkedList<>();
+
+        visited[start] = true;
+        queue.add(start);
+
+        while (!queue.isEmpty()) {
+            int node = queue.poll();
+            bfs.add(node);
+
+            for (int neighbor : adj.get(node)) {
+                if (!visited[neighbor]) {
+                    visited[neighbor] = true;
+                    queue.add(neighbor);
+                }
+            }
+        }
+        return bfs;
+    }
+
+    public static void main(String[] args) {
+        int V = 5;
+        List<List<Integer>> adj = new ArrayList<>();
+        for (int i = 0; i < V; i++) {
+            adj.add(new ArrayList<>());
+        }
+
+
+        adj.get(0).add(1);
+        adj.get(0).add(2);
+        adj.get(1).add(0);
+        adj.get(1).add(3);
+        adj.get(2).add(0);
+        adj.get(2).add(4);
+        adj.get(3).add(1);
+        adj.get(4).add(2);
+
+        List<Integer> bfs = bfsTraversal(V, adj, 0);
+        System.out.println("BFS Traversal: " + bfs);
+    }
+}
+
+
+---
+
+2. DFS Traversal Program (Depth-First Search)
+import java.util.*;
+public class DFS {
+    public static void dfsHelper(int node, List<List<Integer>> adj, boolean[] visited, List<Integer> dfs) {
+        visited[node] = true;
+        dfs.add(node);
+
+        for (int neighbor : adj.get(node)) {
+            if (!visited[neighbor]) {
+                dfsHelper(neighbor, adj, visited, dfs);
+            }
+        }
+    }
+
+    public static List<Integer> dfsTraversal(int V, List<List<Integer>> adj, int start) {
+        List<Integer> dfs = new ArrayList<>();
+        boolean[] visited = new boolean[V];
+        dfsHelper(start, adj, visited, dfs);
+        return dfs;
+    }
+
+    public static void main(String[] args) {
+        int V = 5;
+        List<List<Integer>> adj = new ArrayList<>();
+        for (int i = 0; i < V; i++) {
+            adj.add(new ArrayList<>());
+        }
+        adj.get(0).add(1);
+        adj.get(0).add(2);
+        adj.get(1).add(0);
+        adj.get(1).add(3);
+        adj.get(2).add(0);
+        adj.get(2).add(4);
+        adj.get(3).add(1);
+        adj.get(4).add(2);
+
+        List<Integer> dfs = dfsTraversal(V, adj, 0);
+        System.out.println("DFS Traversal: " + dfs);
+    }
+}
+
+
