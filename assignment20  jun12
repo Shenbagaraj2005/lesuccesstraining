@@ -1,0 +1,48 @@
+1. Closure-based Calculator
+def calculate(a, b, operation) {
+    return operation(a, b)
+}
+
+def add = { x, y -> x + y }
+def subtract = { x, y -> x - y }
+def multiply = { x, y -> x * y }
+println "Addition: " + calculate(5, 3, add)
+println "Subtraction: " + calculate(5, 3, subtract)
+println "Multiplication: " + calculate(5, 3, multiply)
+
+
+
+
+2. Word Frequency Counter
+
+print "Enter a sentence: "
+def sentence = System.console()?.readLine() ?: new Scanner(System.in).nextLine()
+def words = sentence.toLowerCase().split("\\s+")
+def wordCount = [:]
+
+words.each { word ->
+    wordCount[word] = wordCount.get(word, 0) + 1
+}
+
+println "Word Frequency:"
+wordCount.each { word, count ->
+    println "$word → $count"
+}
+
+
+
+
+3. Group Strings by Length
+
+def words = ["hi", "hello", "bye", "good", "sun"]
+def grouped = [:].withDefault { [] }
+
+words.each { word ->
+    grouped[word.length()] << word
+}
+
+println "Grouped by word length:"
+grouped.each { length, wordList ->
+    println "$length → $wordList"
+}
+
