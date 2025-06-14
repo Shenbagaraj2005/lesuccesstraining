@@ -1,0 +1,91 @@
+1. Read and Write to a File in Groovy
+def fileName = "myfile.txt"
+try {
+
+    def file = new File(fileName)
+    file.write("Shenbagaraj\n")
+    println "Reading from file:"
+    println file.text
+} catch (IOException e) {
+    println "File error: ${e.message}"
+}
+
+
+
+
+
+
+2. Use try-catch-finally to Handle Divide-by-Zero
+def a = 10
+def b = 0
+try {
+    def result = a / b
+    println "Result: $result"
+} catch (ArithmeticException e) {
+    println "Caught an exception: Division by zero"
+} finally {
+    println "This block always executes"
+}
+
+
+
+
+
+
+
+3. Use try-catch to Handle File Not Found
+try {
+    def file = new File("non_existing_file.txt")
+    println file.text
+} catch (FileNotFoundException e) {
+    println "Caught FileNotFoundException: ${e.message}"
+}
+
+
+
+
+
+
+4. Use methodMissing to Handle Undefined Methods
+class MethodHandler {
+    def methodMissing(String name, args) {
+        println "Method ${name} is not defined"
+    }
+}
+def obj = new MethodHandler()
+obj.knownMethod()        
+
+
+
+
+
+
+5. Use propertyMissing to Return Default Value
+class PropertyHandler {
+    def propertyMissing(String name) {
+        return "undefined"
+    }
+}
+def obj = new PropertyHandler()
+println obj.unknownProperty   
+
+
+
+
+
+
+6. Metaprogramming: Dynamically Modify Properties at Runtime
+class DynamicPerson {
+    String name = "Shenbagaraj"
+    void addDynamicProperty(String propName, def value) {
+        DynamicPerson.metaClass."$propName" = value
+    }
+}
+def person = new DynamicPerson()
+person.addDynamicProperty("age", 22)
+println "Name: ${person.name}"
+println "Age: ${person.age}"
+
+
+
+
